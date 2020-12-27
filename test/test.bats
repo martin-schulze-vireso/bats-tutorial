@@ -9,11 +9,7 @@ setup() {
     PATH="$DIR/../src:$PATH"
 }
 
-get_projectsh_welcome_message() {
-    project.sh  2>&1 | grep Welcome
-}
-
 @test "Check welcome message" {
-    run get_projectsh_welcome_message
-    assert_output 'Welcome to our project!'
+    run project.sh
+    assert_output --partial 'Welcome to our project!'
 }
