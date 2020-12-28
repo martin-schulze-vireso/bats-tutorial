@@ -9,7 +9,10 @@ setup() {
     PATH="$DIR/../src:$PATH"
 }
 
-@test "Check welcome message" {
+@test "Show welcome message on first invocation" {
     run project.sh
     assert_output --partial 'Welcome to our project!'
+
+    run project.sh
+    refute_output --partial 'Welcome to our project!'
 }
