@@ -9,6 +9,10 @@ setup() {
     PATH="$DIR/../src:$PATH"
 }
 
+teardown() {
+    rm -f /tmp/bats-tutorial-project-ran
+}
+
 @test "Show welcome message on first invocation" {
     run project.sh
     assert_output --partial 'Welcome to our project!'
