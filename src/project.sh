@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-FIRST_RUN_FILE=/tmp/bats-tutorial-project-ran
+source 'helper.sh'
 
-if [[ ! -e "$FIRST_RUN_FILE" ]]; then
+if _is_first_run; then
     echo "Welcome to our project!"
-    touch "$FIRST_RUN_FILE"
 fi
 
 echo "NOT IMPLEMENTED!" >&2
