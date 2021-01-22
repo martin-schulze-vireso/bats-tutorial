@@ -15,6 +15,10 @@ case $1 in
         echo $! > /tmp/project-echo-server.pid
         echo "$PORT" >&2
     ;;
+    stop-echo-server)
+        kill "$(< "/tmp/project-echo-server.pid")"
+        rm /tmp/project-echo-server.pid
+    ;;
     *)
         echo "NOT IMPLEMENTED!" >&2
         exit 1

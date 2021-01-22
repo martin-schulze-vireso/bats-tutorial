@@ -5,6 +5,10 @@ setup_file() {
     export PORT
 }
 
+teardown_file() {
+    project.sh stop-echo-server
+}
+
 @test "server is reachable" {
     nc -z -w 2 localhost "$PORT"
 }
