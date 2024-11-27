@@ -13,11 +13,11 @@ teardown() {
 @test "Check first run" {
     NON_EXISTANT_FIRST_RUN_FILE=$(mktemp -u) # only create the name, not the file itself
 
-    assert _is_first_run
-    refute _is_first_run
-    refute _is_first_run
+    assert _is_first_run "$NON_EXISTANT_FIRST_RUN_FILE"
+    refute _is_first_run "$NON_EXISTANT_FIRST_RUN_FILE"
+    refute _is_first_run "$NON_EXISTANT_FIRST_RUN_FILE"
 
     EXISTING_FIRST_RUN_FILE=$(mktemp)
-    refute _is_first_run
-    refute _is_first_run
+    refute _is_first_run "$EXISTING_FIRST_RUN_FILE"
+    refute _is_first_run "$EXISTING_FIRST_RUN_FILE"
 }
